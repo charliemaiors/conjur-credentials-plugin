@@ -94,11 +94,7 @@ public class ConjurSecretCredentialsImpl extends BaseStandardCredentials impleme
 			String secretString = ConjurAPI.getSecret(client, this.conjurConfiguration, authToken, this.variablePath);
 			result = secretString;
 		} catch (IOException e) {
-			Writer writer = new StringWriter();
-			e.printStackTrace(new PrintWriter(writer));
-			String s = writer.toString();
-			LOGGER.log(Level.WARNING, "EXCEPTION: " + s);
-			result = "EXCEPTION: " + e.getMessage();
+			throw new RuntimeException(e);
 		}
 		return Secret.fromString(result);
 	}

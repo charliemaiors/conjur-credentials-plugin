@@ -1,10 +1,10 @@
 # VIM
 *~
-
+*.iml
 # MVN target
 target/
 
 .settings/
 
 .classpath
-
+.idea/
